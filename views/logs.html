@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>OWASP Attacker - Logs </title>
+{% endblock %}
+
+ {% block content %}
+
+
+
+
+<div class="row">
+	<h2> Displaying logs for : {{id}}</h2>
+</div>
+	
+	{% if requests %}
+	 <div class="panel-group" id="accordion">
+	 
+		 {% for req in requests %}
+
+		 	<div class="panel panel-default">
+		 	  <div class="panel-heading">
+		 	    <h4 class="panel-title">
+		 	      <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{loop.index}}">
+		 	        {{ loop.index }} -  {{ req.originalUrl }}
+		 	      </a>
+		 	    </h4>
+		 	  </div>
+		 	  <div id="collapse{{loop.index}}" class="panel-collapse collapse">
+		 	    <div class="panel-body">
+		 	    	<pre>
+		 	      		{{ req.pretty }}
+		 	  		</pre>
+		 	    </div>
+		 	  </div>
+		 	</div>
+		 	
+		 {% endfor %}
+	</div>
+
+	{% else %}
+
+	<div class="row">
+		<p> There are no requests for {{id}}. </p>
+		<p> Send requests to <pre>/logs/{{id}}/save</pre> for requests to be saved. </p>
+		<p> An example might be <pre>http://{{host}}/logs/{{id}}/save?a=this_will_be_logged</pre> </p>
+	</div>	
+
+	{% endif%}
+
+
+
+ {% endblock %}
+
+
+
+ 
