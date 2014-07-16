@@ -18,7 +18,7 @@ var HttpLogHandler = function(db){
 
 		if(!id) return res.render("logs");
 
-		requestDAO.getById(id, function(err, requests){
+		requestDAO.getById(id,function(err, requests){
 			if(err) return res.send("Error occurred" + err);
 
 			// adds spacing to the JSON output to make it look nice

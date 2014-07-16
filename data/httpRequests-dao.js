@@ -44,7 +44,8 @@ function RequestDAO(db) {
         requestsDB
         .find({
             id: id
-        })
+        },
+        {"sort": [['created','desc']]}) // newest requests first
         .toArray(function(err, requests) {
             if (err) return callback(err, null);
             callback(null, requests);
