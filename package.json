@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "consolidate": "^0.10.0",
-    "express": "3.4.8",
+    "express": "4.17.1",
     "mongodb": "^1.4.7",
     "swig": "^1.4.1",
     "underscore": "^1.6.0"
